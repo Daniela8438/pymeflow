@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PymeFlow - Software de Gestión para Pymes</title>
+    <style>
+        /* --- Estilos Generales --- */
+        :root {
+            --color-primario: #005f73;
+            --color-secundario: #0a9396;
+            --color-texto: #333;
+            --color-fondo: #f4f4f4;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--color-texto);
+            background-color: #fff;
+        }
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+            overflow: hidden;
+        }
+        h1, h2 {
+            color: var(--color-primario);
+        }
+        section {
+            padding: 60px 0;
+        }
+        section:nth-child(even) {
+            background-color: var(--color-fondo);
+        }
+
+        /* --- Header y Navegación --- */
+        header {
+            background: #fff;
+            padding: 10px 20px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        header .logo img {
+            height: 50px;
+        }
+
+        /* --- BOTONES DE NAVEGACIÓN MODIFICADOS --- */
+        header nav a {
+            color: var(--color-texto);
+            text-decoration: none;
+            margin: 0 5px; /* Reducimos el margen lateral */
+            font-weight: 600;
+            padding: 10px 15px; /* Añadimos padding para darles cuerpo */
+            border-radius: 20px; /* Redondeamos las esquinas */
+            transition: background-color 0.3s ease, color 0.3s ease; /* Transición suave */
+        }
+        
+        /* --- NUEVO EFECTO HOVER PARA BOTONES --- */
+        header nav a:hover {
+            background-color: var(--color-secundario); /* Fondo color turquesa */
+            color: #fff; /* Texto blanco para contraste */
+        }
+        
+        /* --- ESTILO PARA EL NUEVO BOTÓN DE LOGIN --- */
+        header nav a.login-button {
+            background-color: var(--color-primario);
+            color: #fff;
+        }
+        header nav a.login-button:hover {
+            background-color: #003f5c; /* Un tono más oscuro del primario */
+        }
+        
+        /* --- SECCIÓN DE INICIO MODIFICADA --- */
+        #inicio {
+            background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/banner.jpg');
+            background-size: cover;
+            background-position: center 70%; /* Mueve un poco la imagen de fondo hacia abajo */
+            color: #fff;
+            text-align: center;
+            /* Usamos flexbox para mejor control vertical */
+            display: flex;
+            align-items: flex-start; /* Alinea el contenido arriba */
+            justify-content: center;
+            /* Ajustamos el padding para subir el texto */
+            padding-top: 80px; 
+            min-height: 400px;
+        }
+        
+        #inicio h1 {
+            font-size: 3em;
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+
+        #inicio h1:hover {
+            color: var(--color-secundario);
+        }
+        
+        /* --- Secciones de Contenido (Software, Beneficios) --- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        .grid-2 img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .lista-beneficios li {
+            list-style: '✓';
+            padding-left: 10px;
+            margin-bottom: 10px;
+        }
+
+        /* --- Sección de Contacto --- */
+        #contacto .grid-2 {
+            align-items: flex-start;
+        }
+        #contacto form {
+            display: flex;
+            flex-direction: column;
+        }
+        #contacto input, #contacto select, #contacto textarea, #contacto button {
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+        #contacto button {
+            background: var(--color-secundario);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        #contacto button:hover {
+            background: var(--color-primario);
+        }
+        #contacto .mapa img {
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        
+        /* --- Footer --- */
+        footer {
+            background: var(--color-primario);
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        /* --- Diseño Responsivo --- */
+        @media (max-width: 768px) {
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            header {
+                flex-direction: column;
+            }
+            header nav {
+                margin-top: 10px;
+            }
+            #inicio {
+                padding-top: 60px;
+                min-height: 300px;
+            }
+            #inicio h1 {
+                font-size: 2.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="#inicio"><img src="img/logo.png" alt="Logo PymeFlow"></a>
+        </div>
+        <nav>
+            <a href="#software">Nuestro Software</a>
+            <a href="#beneficios">Beneficios</a>
+            <a href="#contacto">Contacto</a>
+            <a href="login.php" class="login-button">Ingresar al Sistema</a>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <h1>Organizá tu negocio.</h1>
+    </section>
+
+    <section id="software" class="container">
+        <div class="grid-2">
+            <div>
+                <h2>Un Software a la Medida de tu Negocio</h2>
+                <p>PymeFlow se adapta a las necesidades específicas de tu rubro, ya sea un almacén, una ferretería o una concesionaria. Gestiona todo de forma centralizada.</p>
+                <ul class="lista-beneficios">
+                    <li>Gestión de clientes</li>
+                    <li>Control de stock en tiempo real</li>
+                    <li>Registro de ventas y pedidos</li>
+                    <li>Facturación simple y rápida</li>
+                    <li>Dashboard con reportes visuales</li>
+                </ul>
+            </div>
+            <div>
+                <img src="img/desarrollador.jpg" alt="Hombre usando el software PymeFlow">
+            </div>
+        </div>
+    </section>
+    
+    <section id="beneficios" class="container">
+        <div class="grid-2">
+            <div>
+                <img src="img/analisis.jpg" alt="Mujer analizando gráficos de PymeFlow">
+            </div>
+            <div>
+                <h2>Beneficios Clave para tu Empresa</h2>
+                <p>Toma el control total de tu operación y toma decisiones basadas en datos.</p>
+                 <ul class="lista-beneficios">
+                    <li>Control total de ventas y stock.</li>
+                    <li>Facturación rápida y simple.</li>
+                    <li>Historial de clientes y pedidos frecuentes.</li>
+                    <li>Dashboard con reportes visuales.</li>
+                    <li>Seguridad y respaldo de datos.</li>
+                    <li>Adaptable a cualquier rubro.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="container">
+        <h2>Contacto</h2>
+        <div class="grid-2">
+            <div>
+                <h3>Envíanos tu Consulta</h3>
+                <form id="formularioContacto">
+                    <input type="text" id="nombre" name="nombre" placeholder="Tu Nombre Completo" required>
+                    <input type="email" id="email" name="email" placeholder="Tu Correo Electrónico" required>
+                    <select id="tipo_consulta" name="tipo_consulta" required>
+                        <option value="" disabled selected>Selecciona el tipo de consulta...</option>
+                        <option value="Consulta General">Consulta General</option>
+                        <option value="Soporte Técnico">Soporte Técnico</option>
+                    </select>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Tu Mensaje" required></textarea>
+                    <button type="submit">Enviar por WhatsApp</button>
+                </form>
+            </div>
+            <div>
+                <h3>Nuestra Oficina</h3>
+                <p><strong>Dirección:</strong> Av. Belgrano 637, C1029 Cdad. Autónoma de Buenos Aires</p>
+                <p><strong>Email:</strong> contacto@pymeflow.com</p>
+                <p><strong>WhatsApp:</strong> +54 9 11 11-5502-2134</p>
+                <div class="mapa">
+                    <img src="img/mapa.jpg" alt="Ubicación en el mapa">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 PymeFlow. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('formularioContacto').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita que el formulario se envíe de la forma tradicional
+
+            // CAMBIA ESTE NÚMERO POR TU WHATSAPP REAL (código de país + número)
+            const telefono = "+5491155022134";
+
+            // Obtenemos los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const email = document.getElementById('email').value;
+            const tipoConsulta = document.getElementById('tipo_consulta').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            // Creamos el mensaje pre-armado
+            const mensajeWhatsApp = `*Nueva Consulta desde la Web PymeFlow*%0A%0A` +
+                                    `*Nombre:* ${nombre}%0A` +
+                                    `*Email:* ${email}%0A` +
+                                    `*Tipo de Consulta:* ${tipoConsulta}%0A%0A` +
+                                    `*Mensaje:*%0A${mensaje}`;
+
+            // Creamos la URL de WhatsApp y redirigimos
+            const urlWhatsApp = `https://wa.me/${telefono}?text=${mensajeWhatsApp}`;
+            
+            window.open(urlWhatsApp, '_blank');
+        });
+    </script>
+
+</body>
+</html>
